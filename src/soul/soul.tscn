@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1akc0nvhdo08"]
+
+[ext_resource type="Texture2D" uid="uid://dikbre65wpw3h" path="res://assets/heart.png" id="1_4shw4"]
+[ext_resource type="Script" path="res://src/soul/soul.gd" id="2_yhwxo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gyiun"]
+radius = 20.0
+
+[node name="Soul" type="CharacterBody2D"]
+script = ExtResource("2_yhwxo")
+
+[node name="Heart" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_4shw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gyiun")

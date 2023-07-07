@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://pv8hlc6yv3ow"]
+
+[ext_resource type="Texture2D" uid="uid://bi80j0iurqvi3" path="res://assets/stick.png" id="1_gtuvc"]
+[ext_resource type="Script" path="res://src/attacks/stick/stick.gd" id="1_yc2hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3evuq"]
+size = Vector2(10, 160)
+
+[sub_resource type="Animation" id="Animation_xmeti"]
+resource_name = "poke"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6hvpn"]
+_data = {
+"poke": SubResource("Animation_xmeti")
+}
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_yc2hj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3evuq")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_gtuvc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6hvpn")
+}

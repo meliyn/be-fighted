@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://koxagpwtthnh"]
+
+[ext_resource type="Texture2D" uid="uid://difjc12qbgbvl" path="res://assets/box.png" id="1_30qfj"]
+[ext_resource type="Script" path="res://src/box/box.gd" id="1_u1asg"]
+
+[node name="Box" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1asg")
+
+[node name="Texture" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_30qfj")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3

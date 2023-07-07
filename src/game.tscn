@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci3cn3nvoelju"]
+
+[ext_resource type="PackedScene" uid="uid://koxagpwtthnh" path="res://src/box/box.tscn" id="1_qgqvl"]
+[ext_resource type="Script" path="res://src/game.gd" id="1_rykdu"]
+[ext_resource type="PackedScene" uid="uid://b1akc0nvhdo08" path="res://src/soul/soul.tscn" id="3_c15fn"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_rykdu")
+
+[node name="Box" parent="." instance=ExtResource("1_qgqvl")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Soul" parent="." instance=ExtResource("3_c15fn")]
