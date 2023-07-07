@@ -1,15 +1,23 @@
 extends Area2D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+var time_elasped: float = 0
 
 
 func _ready():
-	animation_player.play("poke")
-	animation_player.animation_finished.connect(_on_finished)
 	body_entered.connect(_on_entered)
 
 
-func _on_finished(_name):
+func _process(delta):
+	time_elasped += delta
+	if time_elasped < 0.2:
+		position.y -= delta * 300
+	elif time_elasped < 0.4:
+		position.y += delta * 300
+	else:
+		_on_finished()
+
+
+func _on_finished():
 	self.queue_free()
 
 
