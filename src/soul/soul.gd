@@ -17,8 +17,10 @@ func _ready():
 func _physics_process(_delta):
 	var closest: Node2D = _get_closest_attack()
 	if closest != null:
-		var original_rotation = rotation
-		look_at(closest.position)
+		var direction = (position - closest.position).normalized()
+		velocity = direction * SPEED
+	else:
+		velocity = Vector2.ZERO
 	# velocity.x = SPEED
 
 	move_and_slide()
