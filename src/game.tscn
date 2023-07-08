@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci3cn3nvoelju"]
+[gd_scene load_steps=5 format=3 uid="uid://ci3cn3nvoelju"]
 
 [ext_resource type="PackedScene" uid="uid://koxagpwtthnh" path="res://src/box/box.tscn" id="1_qgqvl"]
 [ext_resource type="Script" path="res://src/game.gd" id="1_rykdu"]
 [ext_resource type="PackedScene" uid="uid://b1akc0nvhdo08" path="res://src/soul/soul.tscn" id="3_c15fn"]
+[ext_resource type="AudioStream" uid="uid://doyg75bpjqme0" path="res://assets/undertale-au-glitchtale-remix-true-love-frisks-genocide-theme-by-kirian.mp3" id="4_7eijg"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_rykdu")
@@ -11,9 +12,17 @@ script = ExtResource("1_rykdu")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = -50.0
+offset_bottom = -50.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 
 [node name="Soul" parent="." instance=ExtResource("3_c15fn")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7eijg")
+autoplay = true

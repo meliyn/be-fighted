@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 var vector: Vector2
 @onready var tree = get_tree()
+var direction: Vector2
 
 
 func _enter_tree():
@@ -16,8 +17,13 @@ func _ready():
 
 func _physics_process(_delta):
 	var closest: Node2D = _get_closest_attack()
-	if closest != null:
-		var direction = (position - closest.position).normalized()
+	if closest != null and position.distance_to(closest.position) < 150:
+		var _direction = (position - closest.position).normalized()
+		print(_direction.distance_to(direction))
+		if _direction.distance_to(direction) < 0.01:
+			direction = _direction * -1
+		else:
+			direction = _direction
 		velocity = direction * SPEED
 	else:
 		velocity = Vector2.ZERO

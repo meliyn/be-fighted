@@ -1,3 +1,4 @@
+class_name Box
 extends Control
 
 signal text
