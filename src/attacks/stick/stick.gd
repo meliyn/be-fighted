@@ -23,5 +23,5 @@ func _on_finished():
 
 func _on_entered(node: Node2D):
 	if node == Global.soul:
-		print("SOUl")
+		node.hit.emit(1)
 	pass

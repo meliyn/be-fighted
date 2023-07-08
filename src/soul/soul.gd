@@ -1,33 +1,39 @@
 class_name Soul
 extends CharacterBody2D
 
+signal hit(damage: float)
+
 const SPEED = 300.0
-var vector: Vector2
+var hp: int = 20
+var invincibility_time: float = 0
 @onready var tree = get_tree()
-var direction: Vector2
+var _direction: Vector2
 
 
 func _enter_tree():
 	Global.soul = self
-
-
-func _ready():
+	hit.connect(_on_hit)
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+
+
+func _process(delta):
+	invincibility_time -= delta
+	if hp <= 0:
+		OS.alert("Youwin")
+		get_tree().quit()
 
 
 func _physics_process(_delta):
 	var closest: Node2D = _get_closest_attack()
 	if closest != null and position.distance_to(closest.position) < 150:
-		var _direction = (position - closest.position).normalized()
-		print(_direction.distance_to(direction))
-		if _direction.distance_to(direction) < 0.01:
-			direction = _direction * -1
+		var __direction = (position - closest.position).normalized()
+		if _direction.distance_to(__direction) < 0.01:
+			_direction = __direction * -1
 		else:
-			direction = _direction
-		velocity = direction * SPEED
+			_direction = __direction
+		velocity = _direction * SPEED
 	else:
 		velocity = Vector2.ZERO
-	# velocity.x = SPEED
 
 	move_and_slide()
 
@@ -41,3 +47,9 @@ func _get_closest_attack() -> Node2D:
 			closest = attack
 			closest_distance = distance
 	return closest
+
+
+func _on_hit(damage: int):
+	if invincibility_time <= 0:
+		hp -= damage
+		invincibility_time = 1
