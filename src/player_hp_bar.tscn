@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqelej0difkev"]
+
+[ext_resource type="Texture2D" uid="uid://b7t4a32vlorks" path="res://assets/progress_1.png" id="1_cioy2"]
+[ext_resource type="Texture2D" uid="uid://c2exdmnyg2nfi" path="res://assets/progress_2.png" id="2_70vb4"]
+[ext_resource type="Script" path="res://src/player_hp_bar.gd" id="3_4eaow"]
+
+[node name="PlayerHPBar" type="TextureProgressBar"]
+offset_right = 64.0
+offset_bottom = 32.0
+value = 50.0
+texture_under = ExtResource("1_cioy2")
+texture_progress = ExtResource("2_70vb4")
+script = ExtResource("3_4eaow")

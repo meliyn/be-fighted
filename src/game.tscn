@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci3cn3nvoelju"]
+[gd_scene load_steps=8 format=3 uid="uid://ci3cn3nvoelju"]
 
 [ext_resource type="PackedScene" uid="uid://koxagpwtthnh" path="res://src/box/box.tscn" id="1_qgqvl"]
 [ext_resource type="Script" path="res://src/game.gd" id="1_rykdu"]
 [ext_resource type="PackedScene" uid="uid://b1akc0nvhdo08" path="res://src/soul/soul.tscn" id="3_c15fn"]
 [ext_resource type="AudioStream" uid="uid://doyg75bpjqme0" path="res://assets/undertale-au-glitchtale-remix-true-love-frisks-genocide-theme-by-kirian.mp3" id="4_7eijg"]
 [ext_resource type="Script" path="res://src/music.gd" id="5_xeq53"]
+[ext_resource type="PackedScene" uid="uid://cac7lrlr7mqhj" path="res://src/soul/soul_hp_bar.tscn" id="6_5pbqc"]
+[ext_resource type="PackedScene" uid="uid://cqelej0difkev" path="res://src/player_hp_bar.tscn" id="7_ct2sd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_rykdu")
@@ -28,3 +30,11 @@ grow_vertical = 1
 stream = ExtResource("4_7eijg")
 autoplay = true
 script = ExtResource("5_xeq53")
+
+[node name="SoulHPBar" parent="." instance=ExtResource("6_5pbqc")]
+
+[node name="PlayerHPBar" parent="." instance=ExtResource("7_ct2sd")]
+offset_left = -32.0
+offset_top = 250.0
+offset_right = 32.0
+offset_bottom = 282.0

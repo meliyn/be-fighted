@@ -1,7 +1,7 @@
 class_name Soul
 extends CharacterBody2D
 
-signal hit(damage: float)
+signal hit(damage: int)
 
 const SPEED = 300.0
 var hp: int = 20
@@ -51,5 +51,6 @@ func _get_closest_attack() -> Node2D:
 
 func _on_hit(damage: int):
 	if invincibility_time <= 0:
+		Global.play_sound(preload("res://assets/hurt.wav"))
 		hp -= damage
-		invincibility_time = 1
+		invincibility_time = 0.5

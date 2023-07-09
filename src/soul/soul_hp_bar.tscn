@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cac7lrlr7mqhj"]
+
+[ext_resource type="Texture2D" uid="uid://b7t4a32vlorks" path="res://assets/progress_1.png" id="1_ddh0p"]
+[ext_resource type="Texture2D" uid="uid://c2exdmnyg2nfi" path="res://assets/progress_2.png" id="2_vawfa"]
+[ext_resource type="Script" path="res://src/soul/soul_hp_bar.gd" id="3_6cvaf"]
+
+[node name="SoulHPBar" type="TextureProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -250.0
+offset_right = 32.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 20.0
+value = 10.0
+texture_under = ExtResource("1_ddh0p")
+texture_progress = ExtResource("2_vawfa")
+script = ExtResource("3_6cvaf")
