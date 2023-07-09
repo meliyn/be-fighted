@@ -32,6 +32,10 @@ autoplay = true
 script = ExtResource("5_xeq53")
 
 [node name="SoulHPBar" parent="." instance=ExtResource("6_5pbqc")]
+offset_left = -32.0
+offset_top = -250.0
+offset_right = 32.0
+offset_bottom = -218.0
 
 [node name="PlayerHPBar" parent="." instance=ExtResource("7_ct2sd")]
 offset_left = -32.0

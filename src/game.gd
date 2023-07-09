@@ -36,6 +36,7 @@ func _process(delta):
 		Global.play_sound(preload("res://assets/attac2.wav"))
 		if not is_dodging:
 			Global.play_sound(preload("res://assets/atta.wav"))
+			add_child(preload("res://src/attack_overlay.tscn").instantiate())
 			hp -= randi_range(10, 50)
 		_attack_elasped = 0
 		_next_attack = randi_range(5, 20)

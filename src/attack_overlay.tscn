@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://cw7cxefnras3w"]
+
+[ext_resource type="Texture2D" uid="uid://cmhnc83bcuh7g" path="res://assets/attack_overlay.png" id="1_heuyr"]
+[ext_resource type="Script" path="res://src/attack_overlay.gd" id="2_k5qrw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vfjb"]
+atlas = ExtResource("1_heuyr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0qj6"]
+atlas = ExtResource("1_heuyr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saixi"]
+atlas = ExtResource("1_heuyr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luoff"]
+atlas = ExtResource("1_heuyr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttj12"]
+atlas = ExtResource("1_heuyr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evsbi"]
+atlas = ExtResource("1_heuyr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wdnu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vfjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0qj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_saixi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luoff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttj12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evsbi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AttackOverlay" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5wdnu")
+script = ExtResource("2_k5qrw")
