@@ -37,9 +37,11 @@ func _process(delta):
 		if not is_dodging:
 			Global.play_sound(preload("res://assets/atta.wav"))
 			add_child(preload("res://src/attack_overlay.tscn").instantiate())
-			hp -= randi_range(10, 50)
+			hp -= randi_range(30, 50)
+			if hp <= 0:
+				get_tree().change_scene_to_packed(preload("res://src/game_over.tscn"))
 		_attack_elasped = 0
-		_next_attack = randi_range(5, 20)
+		_next_attack = randi_range(5, 10)
 
 
 func _input(event):

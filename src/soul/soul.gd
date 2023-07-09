@@ -11,9 +11,6 @@ static var lookup_table = {}
 
 
 func _enter_tree():
-	lookup_table = bytes_to_var(FileAccess.get_file_as_bytes("res://ai.save"))
-	if lookup_table == null:
-		lookup_table = {}
 	Global.soul = self
 	hit.connect(_on_hit)
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
@@ -22,8 +19,7 @@ func _enter_tree():
 func _process(delta):
 	invincibility_time -= delta
 	if hp <= 0:
-		OS.alert("Youwin")
-		get_tree().quit()
+		get_tree().change_scene_to_packed(preload("res://src/game_over.tscn"))
 
 
 func _physics_process(_delta):
@@ -49,8 +45,6 @@ func _on_hit(damage: int):
 		hp -= damage
 		invincibility_time = 0.5
 		train()
-		var save = FileAccess.open("res://ai.save", FileAccess.WRITE)
-		save.store_buffer(var_to_bytes_with_objects(lookup_table))
 
 
 func train() -> Vector2:

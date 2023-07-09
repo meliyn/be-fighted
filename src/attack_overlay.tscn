@@ -55,6 +55,6 @@ animations = [{
 
 [node name="AttackOverlay" type="AnimatedSprite2D"]
 texture_filter = 1
-scale = Vector2(5, 5)
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_5wdnu")
 script = ExtResource("2_k5qrw")
